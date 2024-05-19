@@ -11,7 +11,6 @@ function App() {
     document.documentElement.dir = dir;
   }, [i18n.language]);
   return (
-    // container
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 font-extrabold font-body">
       <Header />
       <TrackingDetailsPage/>

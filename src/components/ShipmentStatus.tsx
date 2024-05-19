@@ -6,7 +6,7 @@ const ShipmentStatus = () => {
     <div className="bg-white overflow-hidden shadow rounded-lg border-t">
       <div className="px-4 sm:p-6">
         {/* first div in the card */}
-        <div className="flex justify-between">
+        <div className="flex flex-col md:flex-row justify-between ">
           <div className="flex flex-col gap-2 p-4">
             <p className="text-gray-400 font-normal">
               {t("Shipment Number")}: 1232131

@@ -1,16 +1,17 @@
-import React, { Fragment } from "react";
+import React, { useState } from "react";
 import TrackingMenu from "../TrackingMenu";
 import { useTranslation } from "react-i18next";
 
 const Header = () => {
   const { t, i18n } = useTranslation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleOnClick = () => {
     i18n.changeLanguage(i18n.language === "ar" ? "en" : "ar");
   };
 
   return (
-    <nav className="flex items-center bg-white px-4 py-6 text-[#4f5665] border-b">
+    <nav className="flex items-center bg-white px-4 py-6 text-[#4f5665] border-b justify-between">
       {/* first div */}
       <div>
         {i18n.language === "en" ? (
@@ -83,7 +84,7 @@ const Header = () => {
       </div>
 
       {/* second div */}
-      <ul className="flex grow justify-center space-x-12 rtl:space-x-reverse">
+      <ul className="hidden md:flex grow justify-center space-x-12 rtl:space-x-reverse">
         <li>
           <a href="#" className="hover:text-[#E30613] hover:underline">
             {t("Main")}
@@ -102,26 +103,90 @@ const Header = () => {
       </ul>
 
       {/* third div */}
-      <div>
-        <ul className="flex space-x-4 rtl:space-x-reverse">
-          <li>
-            <TrackingMenu />
-          </li>
-          <li>
-            <a href="#" className="hover:text-[#E30613] hover:underline">
-              {t("SignIn")}
-            </a>
-          </li>
-          <li>
-            <button
-              className="text-[#E30613] cursor-pointer"
-              onClick={handleOnClick}
-            >
-              {i18n.language === "en" ? "عربي" : "ENG"}
-            </button>
-          </li>
-        </ul>
+      <ul className="space-x-4 rtl:space-x-reverse  hidden md:flex">
+        <li>
+          <TrackingMenu />
+        </li>
+        <li>
+          <a href="#" className="hover:text-[#E30613] hover:underline">
+            {t("SignIn")}
+          </a>
+        </li>
+        <li>
+          <button
+            className="text-[#E30613] cursor-pointer"
+            onClick={handleOnClick}
+          >
+            {i18n.language === "en" ? "عربي" : "ENG"}
+          </button>
+        </li>
+      </ul>
+
+      <div className="md:hidden flex gap-4">
+        <TrackingMenu />
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="text-[#4f5665] focus:outline-none"
+        >
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {isMenuOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16m-7 6h7"
+              />
+            )}
+          </svg>
+        </button>
       </div>
+      {isMenuOpen && (
+        <div>
+          <nav className="fixed top-0 right-0 left-0 bottom-0 lg:bottom-auto bg-white">
+            <div
+              className="hidden max-lg:block fixed right-0  px-8 py-4 cursor-pointer"
+              onClick={() => {
+                setIsMenuOpen(!isMenuOpen);
+              }}
+            >
+              <svg
+                className="w-8 h-8"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </div>
+            <ul className="lg:hidden flex flex-col h-full gap-10 divide-y-2 div p-4 text-4xl font-normal mt-20">
+              <li className="p-2">{t("Main")}</li>
+              <li className="p-2">{t("Pricing")}</li>
+              <li className="p-2">{t("Talk To Sales")}</li>
+              <li className="p-2">{t("SignIn")}</li>
+              <li className="p-2 font-light"><button onClick={handleOnClick}>{i18n.language === "en"? "العربية": "English"}</button></li>
+            </ul>
+          </nav>
+        </div>
+      )}
     </nav>
   );
 };

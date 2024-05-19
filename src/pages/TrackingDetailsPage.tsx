@@ -8,9 +8,9 @@ const TrackingDetailsPage = () => {
   return (
     <div className="flex flex-col gap-6 pt-8">
       <ShipmentStatus />
-      <div className="flex gap-6">
+      <div className="flex flex-col lg:flex-row gap-6">
         <ShipmentDetails />
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-4">
           <DeliveryAddress />
           <CallSupport />
         </div>
