@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import TrackingMenu from "../TrackingMenu";
+import ShipmentTrackingButton from "../ShipmentTrackingButton";
 import { useTranslation } from "react-i18next";
 
 const Header = () => {
@@ -105,7 +105,7 @@ const Header = () => {
       {/* third div */}
       <ul className="space-x-4 rtl:space-x-reverse  hidden md:flex">
         <li>
-          <TrackingMenu />
+          <ShipmentTrackingButton />
         </li>
         <li>
           <a href="#" className="hover:text-[#E30613] hover:underline">
@@ -123,7 +123,7 @@ const Header = () => {
       </ul>
 
       <div className="md:hidden flex gap-4">
-        <TrackingMenu />
+        <ShipmentTrackingButton />
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="text-[#4f5665] focus:outline-none"

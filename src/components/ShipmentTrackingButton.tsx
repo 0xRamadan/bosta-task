@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { useTranslation } from "react-i18next";
 
-const TrackingMenu = () => {
+const ShipmentTrackingButton = () => {
   const [isVisible, setIsVisible] = useState(false);
   const { i18n } = useTranslation();
   const inputRef = useRef<HTMLInputElement>(null);
@@ -70,4 +70,4 @@ const TrackingMenu = () => {
   );
 };
 
-export default TrackingMenu;
+export default ShipmentTrackingButton;
