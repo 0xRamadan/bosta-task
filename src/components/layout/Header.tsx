@@ -1,5 +1,5 @@
-import React from "react";
-import TrackingMenu from "./trackingMenu";
+import React, { Fragment } from "react";
+import TrackingMenu from "../TrackingMenu";
 import { useTranslation } from "react-i18next";
 
 const Header = () => {
@@ -10,7 +10,7 @@ const Header = () => {
   };
 
   return (
-    <nav className="flex items-center bg-white px-24 py-4 text-[#4f5665] font-body font-extrabold border-b">
+    <nav className="flex items-center bg-white px-4 py-6 text-[#4f5665] border-b">
       {/* first div */}
       <div>
         {i18n.language === "en" ? (
@@ -91,12 +91,12 @@ const Header = () => {
         </li>
         <li>
           <a href="#" className="hover:text-[#E30613] hover:underline">
-          {t("Pricing")}
+            {t("Pricing")}
           </a>
         </li>
         <li>
           <a href="#" className="hover:text-[#E30613] hover:underline">
-          {t("Talk To Sales")}
+            {t("Talk To Sales")}
           </a>
         </li>
       </ul>
@@ -106,7 +106,6 @@ const Header = () => {
         <ul className="flex space-x-4 rtl:space-x-reverse">
           <li>
             <TrackingMenu />
-            {/* <FloatMenu/> */}
           </li>
           <li>
             <a href="#" className="hover:text-[#E30613] hover:underline">
@@ -118,7 +117,7 @@ const Header = () => {
               className="text-[#E30613] cursor-pointer"
               onClick={handleOnClick}
             >
-              {t("ENG")}
+              {i18n.language === "en" ? "عربي" : "ENG"}
             </button>
           </li>
         </ul>
