@@ -32,7 +32,11 @@
 
 ## About The Project
 
-[![Bosta Track API](assets/Screenshot-UI.01.png)](https://github.com/Elalfy74/news-app)
+English
+[![Bosta Track API](assets/Screenshot-UI.01-En.png)](https://github.com/0xramadan/bosta-task)
+
+Arabic
+[![Bosta Track API](assets/Screenshot-UI.01.png)](https://github.com/0xramadan/bosta-task)
 
 - Users can track their shipment by entering their shipment number
 - Users can see new details about their shipment
@@ -74,3 +78,5 @@ Mahmoud Ramadan - [Twitter](https://twitter.com/Mahmoudelalfy74) -
 [LinkedIn](https://www.linkedin.com/in/0xramadan/)
 
 Project Link: [Bosta Task](https://github.com/0xramadan/bosta-task)
+
+Demo: [Bosta Task](https://bosta-task-seven.vercel.app/)

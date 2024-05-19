@@ -103,7 +103,7 @@ const Header = () => {
       </ul>
 
       {/* third div */}
-      <ul className="space-x-4 rtl:space-x-reverse  hidden md:flex">
+      <ul className="space-x-4 rtl:space-x-reverse  hidden md:flex gap-4">
         <li>
           <ShipmentTrackingButton />
         </li>
